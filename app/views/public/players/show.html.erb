@@ -1,0 +1,19 @@
+<h1><%= @player.first_name %> <%= @player.last_name %></h1>
+<%= link_to "プロフィールを編集する", edit_player_path(current_player.id) %>
+
+<table>
+  <thead>
+    <th>活動スポーツ</th>
+    <th>活動地域</th>
+    <th>チーム or SNSのURL</th>
+  </thead>
+  <tbody>
+    <td></td>
+    <td><%= @player.area %></td>
+    <td><%= @player.team_url %></td>
+  </tbody>
+</table>
+
+<div>
+  <%= @player.introduce %>
+</div>
