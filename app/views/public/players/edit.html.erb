@@ -1,0 +1,39 @@
+<h1>マイページ編集</h1>
+  <%= form_with model: @player do |f| %>
+  <div class="field">
+    <%= f.label :"姓" %>
+    <%= f.text_field :first_name, autofocus: true %>
+    <%= f.label :"名" %>
+    <%= f.text_field :last_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"姓(かな)" %>
+    <%= f.text_field :first_name_kana, autofocus: true %>
+    <%= f.label :"名(かな)" %>
+    <%= f.text_field :last_name_kana %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"メールアドレス" %>
+    <%= f.email_field :email, autocomplete: "email" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"活動地域" %>
+    <%= f.text_field :area %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"活動チーム or SNSのURL" %>
+    <%= f.text_field :team_url %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"自己紹介" %>
+    <%= f.text_area :introduce %>
+  </div>
+    
+    
+    <%= f.submit "変更を保存" %>
+  <% end %>  
