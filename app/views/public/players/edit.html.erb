@@ -20,6 +20,11 @@
   </div>
   
   <div class="field">
+    <%= f.label :"活動中のスポーツ" %>
+    <%= f.collection_select :sports_id, Sport.all, :id, :sport_name, include_blank: "選択して下さい" %>
+  </div>
+  
+  <div class="field">
     <%= f.label :"活動地域" %>
     <%= f.text_field :area %>
   </div>

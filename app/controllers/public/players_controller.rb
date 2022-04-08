@@ -3,11 +3,12 @@ class Public::PlayersController < ApplicationController
   end
 
   def edit
-    @player = current_player
+    @player = Player.find(params[:id])
+   
   end
   
   def update
-    @player = current_player
+    @player = Player.find(params[:id])
     @player.update(player_params)
     redirect_to player_path(current_player.id)
   end
@@ -17,12 +18,12 @@ class Public::PlayersController < ApplicationController
   end
 
   def show
-    @player = current_player
+    @player = Player.find(params[:id])
   end
   
   private
   
   def player_params
-    params.require(:player).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :area, :team_url, :email, :introduce)
+    params.require(:player).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :area, :team_url, :email, :introduce, :sports_id)
   end
 end
