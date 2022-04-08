@@ -8,6 +8,7 @@ devise_for :players,skip: [:passwords], controllers: {
   
   scope module: :public do
     resources :players, only: [:new, :create, :index, :show, :destroy, :edit, :update]
+    resources :sports, only: [:index, :show]
   end
 
   
