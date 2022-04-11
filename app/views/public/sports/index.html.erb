@@ -1,0 +1,13 @@
+<main>
+  <h1>スポーツ一覧</h1>
+  
+    <div class="sports-tag">
+      <% @sports.each do |sport| %>
+        <div class="box shadow">
+          <%= link_to sport_path(sport.id), class: "tag" do %>
+            <h2><%= sport.sport_name %></h2>
+          <% end %>
+        </div>
+       <% end %>
+    </div>
+</main>

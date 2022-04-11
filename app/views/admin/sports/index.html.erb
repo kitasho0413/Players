@@ -1,24 +1,27 @@
-<h1>登録中のスポーツ一覧</h1>
+<main>
+  <h1>登録中のスポーツ一覧</h1>
 
-<div>
-  <%= form_with model: @sports, url: admin_sports_path, method: :post do |f| %>
-    <%= f.label :"スポーツ名" %>
-    <%= f.text_field :sport_name %>
-    <%= f.submit "登録する" %>
-  <% end %>
-</div>
-<div>
-  <table>
-    <thead>
-      <th>スポーツ名</th>
-    </thead>
-    <tbody>
-    <% @sports.each do |sport| %>
-      <tr>
-        <td><%= sport.sport_name %></td>
-        <td><%= link_to "削除", admin_sport_path(sport.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-      </tr>
+  <div>
+    <%= form_with model: @sports, url: admin_sports_path, method: :post do |f| %>
+      <%= f.label :"スポーツ名" %>
+      <%= f.text_field :sport_name %>
+      <%= f.submit "登録する" %>
     <% end %>
-    </tbody>
-  </table>
-</div>
+  </div>
+  <div>
+    <table>
+      <thead>
+        <th>スポーツ名</th>
+      </thead>
+      <tbody>
+      <% @sports.each do |sport| %>
+        <tr>
+          <td><%= sport.sport_name %></td>
+          <td><%= link_to "削除", admin_sport_path(sport.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</main>

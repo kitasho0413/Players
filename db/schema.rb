@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_071856) do
+ActiveRecord::Schema.define(version: 2022_04_09_050448) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_071856) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sports_id"
+    t.integer "sport_id"
     t.string "first_name"
     t.string "last_name"
     t.string "first_name_kana"
