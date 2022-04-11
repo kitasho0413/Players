@@ -2,6 +2,12 @@
   <h1>マイページ編集</h1>
   <%= form_with model: @player, url: player_path(@player.id), method: :patch do |f| %>
   <div class="field">
+    <%= f.label :"アイコン画像" %>
+    <%= f.file_field :image, accept: "image/*" %><br>
+    <p>(200x200 サイズ)</p>
+  </div>
+  
+  <div class="field">
     <%= f.label :"姓" %>
     <%= f.text_field :first_name, autofocus: true %>
     <%= f.label :"名" %>

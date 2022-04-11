@@ -19,11 +19,12 @@ class Public::PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
+    @posts = Post.all
   end
   
   private
   
   def player_params
-    params.require(:player).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :area, :team_url, :email, :introduce, :sport_id)
+    params.require(:player).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :area, :team_url, :email, :introduce, :sport_id, :image)
   end
 end

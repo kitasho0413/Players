@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  
   # 顧客用
 devise_for :players,skip: [:passwords], controllers: {
   registrations: "public/registrations",
@@ -10,6 +11,7 @@ devise_for :players,skip: [:passwords], controllers: {
   scope module: :public do
     resources :players, only: [:new, :create, :index, :show, :destroy, :edit, :update]
     resources :sports, only: [:show]
+    resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
     get '/' => 'sports#index', as: 'top'
     get '/about' => 'homes#about'
   end

@@ -1,19 +1,26 @@
 <main>
   <div class="container">
     <div class="row">
-      <div class="col-lg-2">
+      <div class="col-lg-3">
+        <div class="mb-4">
+          <% if @player.image.attached? %>
+            <%= image_tag @player.image, size: "200x200", class: "icon" %>
+          <% else %>
+            <%= image_tag "no_image", size: "200x200", class: "icon" %>
+          <% end %>  
+        </div>
         <% if @player == current_player %>
             <div>
-              <p><%= link_to "プロフィールを編集", edit_player_path(current_player.id) %></p>
+              <p><%= link_to "プロフィールを編集する", edit_player_path(current_player.id), class: "text-center" %></p>
             </div>
           <% end %>
       </div>
-      <div class="col-lg-10">
+      <div class="col-lg-9">
         <table class="table table-condensed">
           <tr class="mb-3">
             <td><h2>名前</h2></td>
             <td class="text-center"><h3><%= @player.first_name %> <%= @player.last_name %></h3></td>
-          </tr>     
+          </tr>
           <tr class="mb-3">
             <td><h2>活動スポーツ</h2></td>
             <td class="text-center"><h3><%= @player.sport.sport_name %></h3></td>
@@ -34,12 +41,28 @@
       </div>
     </div>
   </div>
-  
-  <div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+  <div>
+    <%= link_to "＋", new_post_path %>
   </div>
+
+  <div class="post-items">
+    <% @posts.each do |post| %>
+    <%= link_to post_path(post.id) do %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <% if post.image.attached? %>
+            <%= image_tag post.image, size: "250x180" %>
+          <% else %>
+            <%= video_tag rails_blob_path(post.video), controls: true, size: "250x174" %>
+            <%#= video_tag(rails_blob_path(post.video), autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
+          <% end %>
+            <strong><p class="card-text"><%= post.title %></p></strong>
+            <p class="card-text"><%= post.about %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
 </div>
 
 </main>
