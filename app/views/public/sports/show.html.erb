@@ -1,5 +1,8 @@
-<h1>player一覧</h1>
-
-<% @sport.players do |player| %>
-  <%= player.first_name %>
-<% end %>
+<main>
+  <h1>Player一覧  ”<%= @sport.sport_name %>”</h1>
+  <% @sport.players.each do |player| %>
+    <%= link_to player_path(player.id) do %>
+      <%= player.first_name %><%= player.last_name %>
+    <% end %>  
+  <% end %>
+</main>

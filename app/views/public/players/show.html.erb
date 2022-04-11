@@ -1,19 +1,45 @@
-<h1><%= @player.first_name %> <%= @player.last_name %></h1>
-<%= link_to "プロフィールを編集する", edit_player_path(current_player.id) %>
-
-<table>
-  <thead>
-    <th>活動スポーツ</th>
-    <th>活動地域</th>
-    <th>チーム or SNSのURL</th>
-  </thead>
-  <tbody>
-    <td><%= @player.sports_id %></td>
-    <td><%= @player.area %></td>
-    <td><%= @player.team_url %></td>
-  </tbody>
-</table>
-
-<div>
-  <%= @player.introduce %>
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-2">
+        <% if @player == current_player %>
+            <div>
+              <p><%= link_to "プロフィールを編集", edit_player_path(current_player.id) %></p>
+            </div>
+          <% end %>
+      </div>
+      <div class="col-lg-10">
+        <table class="table table-condensed">
+          <tr class="mb-3">
+            <td><h2>名前</h2></td>
+            <td class="text-center"><h3><%= @player.first_name %> <%= @player.last_name %></h3></td>
+          </tr>     
+          <tr class="mb-3">
+            <td><h2>活動スポーツ</h2></td>
+            <td class="text-center"><h3><%= @player.sport.sport_name %></h3></td>
+          </tr>
+          <tr class="mb-3">
+            <td><h2>活動地域</h2></td>
+            <td class="text-center"><h3><%= @player.area %></h3></td>
+          </tr>
+          <tr class="mb-3">
+            <td><h2>チーム or SNSのURL</h2></td>
+            <td><p><%= text_url_to_link(h(@player.team_url)).html_safe %></p></td>
+          </tr>
+      </table>
+      </div>
+      <div>
+        <h2>自己紹介</h2>
+        <p><%= @player.introduce %></p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
 </div>
+
+</main>

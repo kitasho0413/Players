@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Players</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,22 +12,58 @@
 
   <body>
     <header>
-    <% if player_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_player_session_path, method: :delete %>
-      </li>
-      <il>
-        <%= link_to "マイページ", player_path(current_player.id) %>
-      </il>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_player_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_player_session_path %>
-      </li>
-    <% end %>
-  </header>
+      
+      <nav class="navbar">
+        <div>
+          <%= link_to '/', class: 'navbar-brand header-link' do %>
+            <h2>Players</h2>
+          <% end %>
+        </div>  
+  
+          <nav class="navbar-dark dark text-white">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          
+           <ul class="navbar-nav ml-auto">
+              <% if player_signed_in? %>
+                    <li>
+                      <%= link_to "ログアウト", destroy_player_session_path, method: :delete, class: "header-link" %>
+                    </li>
+                    <il>
+                      <%= link_to "マイページ", player_path(current_player.id), class: "header-link" %>
+                    </il>
+                    <li>
+                      <%= link_to "About", about_path, class: "header-link" %>
+                    </li>
+                  <% else %>
+                    <li>
+                      <%= link_to "新規登録", new_player_registration_path, class: "header-link" %>
+                    </li>
+                    <li>
+                      <%= link_to "ログイン", new_player_session_path, class: "header-link" %>
+                    </li>
+                    <li>
+                      <%= link_to "About", about_path, class: "header-link" %>
+                    </li>
+                  <% end %>
+            </ul>
+          </div>
+          </nav>
+          
+      </nav>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <h2 class="text-center">Players</h2>
+            <p>©️players All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

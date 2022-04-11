@@ -1,5 +1,6 @@
-<h1>マイページ編集</h1>
-  <%= form_with model: @player do |f| %>
+<main>
+  <h1>マイページ編集</h1>
+  <%= form_with model: @player, url: player_path(@player.id), method: :patch do |f| %>
   <div class="field">
     <%= f.label :"姓" %>
     <%= f.text_field :first_name, autofocus: true %>
@@ -21,7 +22,7 @@
   
   <div class="field">
     <%= f.label :"活動中のスポーツ" %>
-    <%= f.collection_select :sports_id, Sport.all, :id, :sport_name, include_blank: "選択して下さい" %>
+    <%= f.collection_select :sport_id, Sport.all, :id, :sport_name, include_blank: "選択して下さい" %>
   </div>
   
   <div class="field">
@@ -42,3 +43,4 @@
     
     <%= f.submit "変更を保存" %>
   <% end %>  
+</main>
