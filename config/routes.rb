@@ -9,6 +9,9 @@ devise_for :players,skip: [:passwords], controllers: {
 }
   
   scope module: :public do
+    get 'players/unsubscribe' => 'players#unsubscribe', as: 'unsubscribe'
+    get 'players/withdraw'
+    patch 'players/withdraw'
     resources :players, only: [:new, :create, :index, :show, :destroy, :edit, :update]
     resources :sports, only: [:show]
     resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
