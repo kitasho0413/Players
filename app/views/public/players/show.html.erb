@@ -9,7 +9,7 @@
             <%= image_tag "no_image", size: "200x200", class: "icon" %>
           <% end %>  
         </div>
-        <% if @player == current_player %>
+          <% if @player == current_player %>
             <div>
               <p><%= link_to "プロフィールを編集する", edit_player_path(current_player.id), class: "text-center" %></p>
             </div>
@@ -18,19 +18,19 @@
       <div class="col-lg-9">
         <table class="table table-condensed">
           <tr class="mb-3">
-            <td><h2>名前</h2></td>
+            <td><h3>名前</h3></td>
             <td class="text-center"><h3><%= @player.first_name %> <%= @player.last_name %></h3></td>
           </tr>
           <tr class="mb-3">
-            <td><h2>活動スポーツ</h2></td>
+            <td><h3>活動スポーツ</h3></td>
             <td class="text-center"><h3><%= @player.sport.sport_name %></h3></td>
           </tr>
           <tr class="mb-3">
-            <td><h2>活動地域</h2></td>
+            <td><h3>活動地域</h3></td>
             <td class="text-center"><h3><%= @player.area %></h3></td>
           </tr>
           <tr class="mb-3">
-            <td><h2>チーム or SNSのURL</h2></td>
+            <td><h3>チーム or SNSのURL</h3></td>
             <td><p><%= text_url_to_link(h(@player.team_url)).html_safe %></p></td>
           </tr>
       </table>
@@ -41,14 +41,14 @@
       </div>
     </div>
   </div>
-
+<% if @player == current_player %>
   <div>
     <%= link_to "＋", new_post_path %>
   </div>
-
+<% end %>
   <div class="post-items">
     <% @posts.each do |post| %>
-    <%= link_to post_path(post.id) do %>
+    <%= link_to post_path(post.id), class: "content-link" do %>
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <% if post.image.attached? %>

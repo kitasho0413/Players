@@ -4,8 +4,9 @@ class Public::PostsController < ApplicationController
   end
   
   def create
-    post = Post.new(post_params)
-    post.save
+    @post = Post.new(post_params)
+    @post.player_id = current_player.id
+    @post.save
     redirect_to player_path(current_player.id)
   end
   
@@ -13,12 +14,14 @@ class Public::PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find(params[:id])
+    @player = Player.find(@post.player_id)
   end
   
   def destroy
     post = Post.find(params[:id])
     post.destroy  
-    redirect_to player_path(player.id)
+    redirect_to player_path(current_player)
   end
   
   private

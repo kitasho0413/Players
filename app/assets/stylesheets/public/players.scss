@@ -6,3 +6,30 @@
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
 }
+
+h3 {
+  width: 280px;
+}
+
+.post-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.content-link {
+  color: #000000;
+}
+
+.content-link:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.form-area {
+  border: none;
+  outline: none;
+  resize: none;
+}
