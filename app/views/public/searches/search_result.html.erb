@@ -1,0 +1,15 @@
+<main>
+  <table class="table">
+    <tbody>
+      <% @players.each do |player| %>
+        <tr>
+          <td>
+            <%= link_to player_path(player.id) do %>
+            <%= player.first_name %><%= player.last_name %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</main>

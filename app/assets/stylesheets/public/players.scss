@@ -33,3 +33,7 @@ h3 {
   outline: none;
   resize: none;
 }
+
+.item:hover {
+  transform: scale(1.1,1.1); 
+}

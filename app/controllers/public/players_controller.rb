@@ -34,11 +34,10 @@ class Public::PlayersController < ApplicationController
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to "/"
   end
-
   
   private
   
   def player_params
-    params.require(:player).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :area, :team_url, :email, :introduce, :sport_id, :image)
+    params.require(:player).permit(:first_name, :last_name, :first_name_kana, :last_name_kana, :area, :team_url, :email, :introduce, :sport_id, :image, :team_name)
   end
 end
