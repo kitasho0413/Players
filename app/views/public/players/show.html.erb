@@ -7,7 +7,7 @@
             <%= image_tag @player.image, size: "200x200", class: "icon" %>
           <% else %>
             <%= image_tag "no_image", size: "200x200", class: "icon" %>
-          <% end %>  
+          <% end %>
         </div>
           <% if @player == current_player %>
             <div>
@@ -28,6 +28,10 @@
           <tr class="mb-3">
             <td><h3>活動地域</h3></td>
             <td class="text-center"><h3><%= @player.area %></h3></td>
+          </tr>
+          <tr class="mb-3">
+            <td><h3>チーム名</h3></td>
+            <td class="text-center"><h3><%= @player.team_name %></h3></td>
           </tr>
           <tr class="mb-3">
             <td><h3>チーム or SNSのURL</h3></td>
@@ -52,9 +56,9 @@
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <% if post.image.attached? %>
-            <%= image_tag post.image, size: "250x180" %>
+            <%= image_tag post.image, size: "250x180", class: "item" %>
           <% else %>
-            <%= video_tag rails_blob_path(post.video), controls: true, size: "250x174" %>
+            <%= video_tag rails_blob_path(post.video), controls: true, size: "250x174", class: "item" %>
             <%#= video_tag(rails_blob_path(post.video), autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
           <% end %>
             <strong><p class="card-text"><%= post.title %></p></strong>

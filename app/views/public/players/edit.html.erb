@@ -48,6 +48,10 @@
             <td><%= f.text_field :area, placeholder: "活動地域", class: "form-area" %></td>
           </tr>
           <tr>
+            <td><strong><%= f.label :"チーム名" %></strong></td>
+            <td><%= f.text_field :team_name, placeholder: "チーム名", class: "form-area" %></td>
+          </tr>
+          <tr>
             <td><strong><%= f.label :"活動チーム or SNSのURL" %></strong</td>
             <td><%= f.text_area :team_url, placeholder: "URL", class: "form-area", size: "50" %></td>
           </tr>

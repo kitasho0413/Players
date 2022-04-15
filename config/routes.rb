@@ -17,6 +17,8 @@ devise_for :players,skip: [:passwords], controllers: {
     resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
     get '/' => 'sports#index', as: 'top'
     get '/about' => 'homes#about'
+    get "search" => "searches#search"
+    get 'search_result' => "searches#search_result"
   end
 
   
