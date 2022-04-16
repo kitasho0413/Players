@@ -14,7 +14,7 @@ import "bootstrap";
 import "../stylesheets/application" 
 import '@fortawesome/fontawesome-free/js/all'
 import "script.js"
-
+require('slick')
 Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()
