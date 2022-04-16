@@ -13,7 +13,7 @@ class Player < ApplicationRecord
         @player = Player.where(["first_name LIKE? OR last_name LIKE? OR concat(first_name,last_name) LIKE? OR team_name LIKE? OR area LIKE?","#{word}","#{word}","#{word}","#{word}","#{word}"])
         # for mysql
       else
-        @player = Player.where("first_name || last_name LIKE'#{word}'")
+        @player = Player.where("first_name || last_name LIKE? OR first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?", "#{word}","#{word}","#{word}","#{word}","#{word}")
         # for sqlite3
       end
 
