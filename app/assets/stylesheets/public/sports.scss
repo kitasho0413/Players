@@ -1,0 +1,60 @@
+// Place all the styles related to the public/sports controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.sports-tag {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.box {
+
+    height: 100px;
+    color: #ffffff;
+    background: #16160e;/*背景色*/
+    margin: 20px;
+    border-bottom: solid 6px #000000;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 9px;
+}
+
+.box:hover {
+  margin-top: 3px;
+  border-bottom: 2px solid #000000;
+}
+
+
+.shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+
+}
+
+.tag {
+  width: 20%;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tag:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+//slick(スライドショー)
+.slick_slider{
+  height: 200px !important;
+  width: 200px !important;
+}
+.slick-slider img{
+  height: 500px !important;
+  width: 1000px !important;
+}
+
+.sports-index {
+  margin-top: 200px;
+}

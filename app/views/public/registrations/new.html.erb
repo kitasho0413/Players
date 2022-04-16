@@ -1,0 +1,50 @@
+<main>
+  <div class="container">
+    <div crass="row d-flex align-items-center">
+    <h2 class="text-center mb-5">新規Player登録</h2>
+      <%= form_with model: @player, url: player_registration_path do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
+    
+    <div class="form-group text-center mb-4">
+      <%= f.text_field :first_name, autofocus: true, placeholder: "姓" %>
+      <%= f.text_field :last_name,  placeholder:"名" %>
+    </div>
+    
+    <div class="form-group text-center mb-4">
+      <%= f.text_field :first_name_kana, autofocus: true, placeholder: "姓(かな)" %>
+      <%= f.text_field :last_name_kana, placeholder: "名(かな)" %>
+    </div>
+    
+    <div class="form-group text-center mb-4">
+      <%= f.label :"活動中のスポーツ" %>
+      <%= f.collection_select :sport_id, Sport.all, :id, :sport_name, include_blank: "選択して下さい" %>
+    </div>
+  
+    <div class="form-group text-center mb-4">
+      <%= f.email_field :email, autocomplete: "email", size: "50", placeholder: "メールアドレス" %>
+    </div>
+  
+    <div class="form-group text-center mb-4">
+      <% if @minimum_password_length %>
+      
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", size: "50", placeholder: "パスワード(6文字以上)" %>
+    </div>
+  
+    <div class="form-group text-center mb-4">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", size: "50", placeholder: "パスワード確認用" %>
+    </div>
+  
+    <div class="actions text-center">
+      <%= f.submit "登録", class:"button mb-3" %>
+    </div>
+  <% end %>
+ 
+      <div class="text-center">
+        <%= render "public/shared/links" %>
+      </div>
+    </div>
+  </div>
+</main>
+
+ 

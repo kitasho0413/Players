@@ -1,0 +1,69 @@
+<main>
+  <h1 class="text-center">プロフィールを編集</h1>
+  <div class="container">
+    <%= form_with model: @player, url: player_path(@player.id), method: :patch do |f| %>
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="mb-4">
+          <% if @player.image.attached? %>
+            <%= image_tag @player.image, size: "200x200", class: "icon" %>
+          <% else %>
+            <%= image_tag "no_image", size: "200x200", class: "icon" %>
+          <% end %>  
+        </div>
+        <div class="field">
+          <%= f.label :"プロフィール画像を変更" %>
+          <%= f.file_field :image, accept: "image/*" %><br>
+          <p>(200x200 サイズ)</p>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <table class="table">
+          <tr>
+            <td><strong><%= f.label :"姓" %></strong></td>
+            <td><%= f.text_field :first_name, autofocus: true, placeholder: "姓", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"名" %></strong></td>
+            <td><%= f.text_field :last_name,  placeholder:"名", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"姓(かな)" %></strong></td>
+            <td><%= f.text_field :first_name_kana, autofocus: true, placeholder: "姓(かな)", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"名(かな)" %></strong></td>
+            <td><%= f.text_field :last_name_kana, placeholder: "名(かな)", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"メールアドレス" %></strong></td>
+            <td><%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"活動中のスポーツ" %></strong></td>
+            <td><%= f.collection_select :sport_id, Sport.all, :id, :sport_name, include_blank: "選択して下さい" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"活動地域" %></strong></td>
+            <td><%= f.text_field :area, placeholder: "活動地域", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"チーム名" %></strong></td>
+            <td><%= f.text_field :team_name, placeholder: "チーム名", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"活動チーム or SNSのURL" %></strong</td>
+            <td><%= f.text_area :team_url, placeholder: "URL", class: "form-area", size: "50" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"自己紹介" %></strong></td>
+            <td><%= f.text_area :introduce, placeholder: "経歴、ポジション、プレースタイル、所属チームの活動状況等", class: "form-area", size: "65x10" %></td>
+          </tr>
+        </table>
+          <%= f.submit "変更を保存" %>
+      </div>
+      <%= link_to "退会する", unsubscribe_path %>
+    </div>
+  <% end %>  
+  </div>
+</main>

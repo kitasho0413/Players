@@ -1,0 +1,19 @@
+<main>
+  <div class="post-item">
+    <% if @post.image.attached? %>
+      <%= image_tag @post.image, size: "1000x500" %>
+    <% else %>
+      <%= video_tag rails_blob_path(@post.video), controls: true, size: "1000x500" %>
+      <%#= video_tag(rails_blob_path(post.video), autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
+    <% end %>
+  <div>
+    <div>
+      <h3><%= @post.title %></h3>
+      <p><%= @post.about %></p>
+    </div>
+    <% if @player == current_player %>   
+      <%= link_to "削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <% end %>
+    </div>
+  </div>
+</main>
