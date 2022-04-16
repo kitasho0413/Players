@@ -27,6 +27,10 @@
    color: #ffffff;
 }
 
+.header-link:hover {
+   color: #ffffff;
+}
+
 
 main {
   width: 100%;
@@ -60,22 +64,26 @@ footer {
   display: inline-block;
   transition: all .4s;
   box-sizing: border-box;
+  
 }
 .menu-trigger {
   position: relative;
   width: 50px;
   height: 44px;
+  
 }
 .menu-trigger span {
   position: absolute;
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #000;
+  background-color: #ffffff;
   border-radius: 4px;
+  
 }
 .menu-trigger span:nth-child(1) {
   top: 0;
+  
 }
 .menu-trigger span:nth-child(2) {
   top: 20px;
@@ -87,6 +95,7 @@ footer {
   -webkit-transform: translateY(20px) rotate(-45deg);
   transform: translateY(20px) rotate(-45deg);
   background-color: #fff;
+  
 }
 .menu-trigger.active span:nth-child(2) {
   opacity: 0;
@@ -118,4 +127,11 @@ footer {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  font-size: 25px;
+}
+ul {
+  list-style: none;
+}
+.menu {
+  margin: auto;
 }

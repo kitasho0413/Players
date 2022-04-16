@@ -13,51 +13,43 @@
   <body>
     <header>
       
-      <nav class="navbar">
+      <nav class="navbar ">
         <div>
           <%= link_to '/', class: 'navbar-brand header-link' do %>
             <h2>Players</h2>
           <% end %>
         </div>  
         
-        <div>
+        <div class="mx-auto">
           <%= render 'public/shared/search' %>
         </div>
+        
+        <div id="sp-menu">
+          <h2 class="menu">MENU</h2>
+          <ul>
+            <% if player_signed_in? %>
+              <li><%= link_to "ログアウト", destroy_player_session_path, method: :delete, class: "header-link" %></li>
+              <li><%= link_to "マイページ", player_path(current_player.id), class: "header-link" %></li>
+              <li><%= link_to "About", about_path, class: "header-link" %></li>
+            <% else %>
+              <li><%= link_to "新規登録", new_player_registration_path, class: "header-link" %></li>
+              <li><%= link_to "ログイン", new_player_session_path, class: "header-link" %></li>
+              <li><%= link_to "About", about_path, class: "header-link" %></li>
+            <% end %>
+          </ul>
+        </div>
+    
+        <div id="hm-icon">
+          <a class="menu-trigger" href="#">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </div>
   
-          <nav class="navbar-dark dark text-white">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          
-           <ul class="navbar-nav ml-auto">
-              <% if player_signed_in? %>
-                    <li>
-                      <%= link_to "ログアウト", destroy_player_session_path, method: :delete, class: "header-link" %>
-                    </li>
-                    <il>
-                      <%= link_to "マイページ", player_path(current_player.id), class: "header-link" %>
-                    </il>
-                    <li>
-                      <%= link_to "About", about_path, class: "header-link" %>
-                    </li>
-                  <% else %>
-                    <li>
-                      <%= link_to "新規登録", new_player_registration_path, class: "header-link" %>
-                    </li>
-                    <li>
-                      <%= link_to "ログイン", new_player_session_path, class: "header-link" %>
-                    </li>
-                    <li>
-                      <%= link_to "About", about_path, class: "header-link" %>
-                    </li>
-                  <% end %>
-            </ul>
-          </div>
-          </nav>
-          
       </nav>
     </header>
+    
     <%= yield %>
     <footer>
       <div class="container mt-5">

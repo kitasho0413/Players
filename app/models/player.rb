@@ -18,11 +18,11 @@ class Player < ApplicationRecord
       end
 
     elsif search == "forward_match"
-      @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","#{word}","#{word}","#{word}","#{word}"])
+      @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","#{word}%","#{word}%","#{word}%","#{word}%"])
     elsif search == "backward_match"
-      @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","#{word}","#{word}","#{word}","#{word}"])
+      @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","%#{word}","%#{word}","%#{word}","%#{word}"])
     elsif search == "partial_match"
-      @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","#{word}","#{word}","#{word}","#{word}"])
+      @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","%#{word}%","%#{word}%","%#{word}%","%#{word}%"])
     else
       @player = Player.all
     end
