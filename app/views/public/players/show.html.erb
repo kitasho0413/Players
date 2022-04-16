@@ -39,15 +39,15 @@
           </tr>
       </table>
       </div>
-      <div>
-        <h2>自己紹介</h2>
+      <div class="mb-5 border-bottom">
+        <h2 class="mb-4">自己紹介</h2>
         <p><%= @player.introduce %></p>
       </div>
     </div>
   </div>
 <% if @player == current_player %>
   <div>
-    <%= link_to "＋", new_post_path %>
+    <%= link_to "＋", new_post_path, class: "new-post-btn" %>
   </div>
 <% end %>
   <div class="post-items">
@@ -68,5 +68,7 @@
       <% end %>
     <% end %>
 </div>
-
+<div class="pagenation">
+  <%= paginate @posts %>
+</div>
 </main>

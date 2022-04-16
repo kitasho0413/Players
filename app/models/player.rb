@@ -16,8 +16,6 @@ class Player < ApplicationRecord
         @player = Player.where("first_name || last_name LIKE'#{word}'")
         # for sqlite3
       end
-      #@player = Player.where("lower(players.first_name) like ? OR lower(players.last_name) like ? OR concat_ws(' ', lower(first_name), lower(last_name)) like ? OR lower(players.team_name) like ? OR lower(players.area) like ?", word, word,
-      #word, word, word)
 
     elsif search == "forward_match"
       @player = Player.where(["first_name LIKE? OR last_name LIKE? OR team_name LIKE? OR area LIKE?","#{word}","#{word}","#{word}","#{word}"])
