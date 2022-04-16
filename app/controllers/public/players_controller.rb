@@ -19,7 +19,8 @@ class Public::PlayersController < ApplicationController
 
   def show
     @player = Player.find(params[:id])
-    @posts = @player.posts
+    #@posts = current_user.posts.page(params[:page])
+    @posts = @player.posts.page(params[:page]).per(8)
   end
   
   def unsubscribe
