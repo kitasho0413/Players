@@ -12,6 +12,7 @@
           </thead>
           <tbody>
             <% @sport.players.each do |player| %>
+            <% unless player.is_deleted %>
             <tr>
               <td>
                 <% if player.image.attached? %>
@@ -27,6 +28,7 @@
               </td>
               <td><%= player.area %></td>
             </tr>
+            <% end %>
             <% end %>
           </tbody>
         </table>
