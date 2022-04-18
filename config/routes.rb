@@ -12,9 +12,15 @@ devise_for :players,skip: [:passwords], controllers: {
     get 'players/unsubscribe' => 'players#unsubscribe', as: 'unsubscribe'
     get 'players/withdraw'
     patch 'players/withdraw'
-    resources :players, only: [:new, :create, :index, :show, :destroy, :edit, :update]
+    resources :players, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
+      member do
+        get :favorites
+      end
+    end
     resources :sports, only: [:show]
-    resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
+    resources :posts, only: [:new, :create, :show, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+    end  
     get '/' => 'sports#index', as: 'top'
     get '/about' => 'homes#about'
     get "search" => "searches#search"

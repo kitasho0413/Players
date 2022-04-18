@@ -27,6 +27,10 @@
    position: fixed;
    z-index: 10;
  }
+ 
+ .logo {
+   justify-content: center;
+ }
 
 .header-link {
    color: #ffffff;

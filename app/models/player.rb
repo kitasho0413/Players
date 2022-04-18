@@ -5,7 +5,8 @@ class Player < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :image
   belongs_to :sport
-  has_many :posts
+  has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def self.looks(search, word)
     if search == "perfect_match"
