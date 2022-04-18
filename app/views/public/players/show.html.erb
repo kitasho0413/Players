@@ -12,6 +12,7 @@
           <% if @player == current_player %>
             <div>
               <p><%= link_to "プロフィールを編集する", edit_player_path(current_player.id), class: "text-center" %></p>
+              <p><%=link_to"お気に入り記事",favorites_player_path(@player) %></p>
             </div>
           <% end %>
       </div>
