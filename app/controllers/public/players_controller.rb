@@ -42,6 +42,11 @@ class Public::PlayersController < ApplicationController
     @favorite_posts = Post.find(favorites)
   end
   
+  def check_players
+    player = Player.find(params[:player_id])
+    @players = player.followings.page(params[:page]).per(12)
+  end
+  
   private
   
   def player_params
