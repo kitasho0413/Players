@@ -4,7 +4,7 @@ class Player < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one_attached :image
-  belongs_to :sport
+  belongs_to :sport, optional: true
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
   # フォローをした、されたの関係

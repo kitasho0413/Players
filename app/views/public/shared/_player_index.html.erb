@@ -17,13 +17,12 @@
       </td>
       <td>
         <%= link_to player_path(player.id) do %>
-          <%= player.first_name %><%= player.last_name %>
+          <h4><%= player.first_name %><%= player.last_name %></h4>
         <% end %>
       </td>
-      <td><%= player.sport.sport_name %></td>
-      <td><%= player.area %></td>
+      <td><h4><%= player.sport.sport_name %></h4></td>
+      <td><h4><%= player.area %></h4></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-<%= paginate @players %>

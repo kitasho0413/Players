@@ -1,3 +1,3 @@
 class Sport < ApplicationRecord
-  has_many :player
+  has_many :players
 end

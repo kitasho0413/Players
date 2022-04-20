@@ -4,7 +4,8 @@
       <h1 class="mr-4">検索結果　Player一覧</h1>
       <div class="col-lg-10 mt-5 mx-auto">
         <%= render 'public/shared/player_index' %>
-        </div>
+        <%= paginate @players %>
+      </div>
     </div>
   </div>
 </main>
