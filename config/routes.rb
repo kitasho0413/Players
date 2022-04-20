@@ -31,6 +31,7 @@ devise_for :players,skip: [:passwords], controllers: {
     end
     get '/' => 'sports#index', as: 'top'
     get '/about' => 'homes#about'
+    post 'guest_log_in', to: 'guest_login#guest_sign_in'
     get "search" => "searches#search"
     get 'search_result' => "searches#search_result"
   end

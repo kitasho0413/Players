@@ -38,6 +38,7 @@
               <% else %>
                 <li><%= link_to "新規登録", new_player_registration_path, class: "header-link" %></li>
                 <li><%= link_to "ログイン", new_player_session_path, class: "header-link" %></li>
+                <li><%= link_to 'ゲストログイン（閲覧用）', guest_log_in_path, method: :post %></li>
                 <li><%= link_to "TOPに戻る", top_path %></li>
                 <li><%= link_to "About", about_path, class: "header-link" %></li>
               <% end %>

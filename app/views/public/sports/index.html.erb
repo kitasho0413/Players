@@ -4,18 +4,17 @@
     <%= image_tag random.image if random.image.present? %>
   <% end %>
   </div>
-
-  <div class="sports-index">
-    <h1 class="ml-5">スポーツ一覧</h1>
+    <div class="sports-index">
+    <h1 class="contents-title">スポーツ一覧</h1>
       <div class="sports-tag">
         <% @sports.each do |sport| %>
           <%= link_to sport_path(sport.id),class: "box shadow tag" do %>
-            <h2><%= sport.sport_name %></h2>
+            <h3><%= sport.sport_name %></h3>
           <% end %>
         <% end %>
       </div>
       <div class="pagenation">
         <%= paginate @sports %>
       </div>
-  </div>  
+    </div>  
 </main>
