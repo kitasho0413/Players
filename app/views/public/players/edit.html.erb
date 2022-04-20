@@ -1,8 +1,8 @@
 <main>
-  <h1 class="text-center">プロフィールを編集</h1>
+  <h1 class="text-center page-title">プロフィールを編集</h1>
   <div class="container">
     <%= form_with model: @player, url: player_path(@player.id), method: :patch do |f| %>
-    <div class="row">
+    <div class="row mt-5">
       <div class="col-lg-3">
         <div class="mb-4">
           <% if @player.image.attached? %>

@@ -7,31 +7,32 @@
         <table class="table">
           <thead>
             <th></th>
-            <th>名前</th>
-            <th>活動地域</th>
+            <th><h4>名前</h4></th>
+            <th><h4>活動地域</h4></th>
           </thead>
           <tbody>
             <% @sport.players.each do |player| %>
-            <% unless player.is_deleted %>
-            <tr>
-              <td>
-                <% if player.image.attached? %>
-                  <%= image_tag player.image, size: "70x70", class: "icon" %>
-                <% else %>
-                  <%= image_tag "no_image", size: "70x70", class: "icon" %>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to player_path(player.id) do %>
-                  <%= player.first_name %><%= player.last_name %>
-                <% end %>
-              </td>
-              <td><%= player.area %></td>
-            </tr>
+              <% unless player.is_deleted %>
+              <tr>
+                <td>
+                  <% if player.image.attached? %>
+                    <%= image_tag player.image, size: "70x70", class: "icon" %>
+                  <% else %>
+                    <%= image_tag "no_image", size: "70x70", class: "icon" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to player_path(player.id) do %>
+                    <h4><%= player.first_name %><%= player.last_name %></h4>
+                  <% end %>
+                </td>
+                <td><h4><%= player.area %></h4></td>
+              </tr>
             <% end %>
             <% end %>
           </tbody>
         </table>
+        <%#= paginate @sport.players %>
       </div>
     </div>
   </div>

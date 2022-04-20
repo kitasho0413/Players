@@ -1,0 +1,22 @@
+<main>
+  <h2 class="text-center">いいねした投稿一覧</h2>
+  <div class="post-items">
+    <% @favorite_posts.each do |post|%>
+    <%= link_to post_path(post.id), class: "content-link" do %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <% if post.image.attached? %>
+            <%= image_tag post.image, size: "250x180", class: "item" %>
+          <% else %>
+            <%= video_tag rails_blob_path(post.video), controls: true, size: "250x174", class: "item" %>
+            <%#= video_tag(rails_blob_path(post.video), autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
+          <% end %>
+            <strong><p class="card-text">@<%= post.player.first_name %><%= post.player.last_name %></p></strong>
+            <p class="card-text"><%= post.title %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+</div>
+
+</main>

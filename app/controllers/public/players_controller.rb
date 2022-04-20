@@ -36,6 +36,17 @@ class Public::PlayersController < ApplicationController
     redirect_to "/"
   end
   
+  def favorites
+    @player = Player.find(params[:id])
+    favorites= Favorite.where(player_id: @player.id).pluck(:post_id)
+    @favorite_posts = Post.find(favorites)
+  end
+  
+  def check_players
+    player = Player.find(params[:player_id])
+    @players = player.followings.page(params[:page]).per(12)
+  end
+  
   private
   
   def player_params

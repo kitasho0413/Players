@@ -7,6 +7,10 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 1);
 }
 
+.page-title {
+  font-weight: bold;
+}
+
 h3 {
   width: 280px;
 }
@@ -21,6 +25,7 @@ h3 {
 
 .content-link {
   color: #000000;
+  text-decoration: none;
 }
 
 .content-link:hover {
@@ -35,7 +40,7 @@ h3 {
 }
 
 .item:hover {
-  transform: scale(1.05,1.05); 
+  transform: scale(1.05,1.05);
 }
 
 .new-post-btn {
@@ -50,6 +55,7 @@ h3 {
   z-index: 1;
   display: inline-block;
   transition: .3s;
+  text-decoration: none;
 }
 .new-post-btn::before {
   content: "";

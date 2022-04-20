@@ -12,7 +12,6 @@ class Public::SportsController < ApplicationController
   
   def show
     @sport = Sport.find(params[:id])
-    
   end
   
   private

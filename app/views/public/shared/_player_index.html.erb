@@ -1,28 +1,28 @@
-<div class="col-lg-10 mt-5 mx-auto">
-        <table class="table">
-          <thead>
-            <th></th>
-            <th>名前</th>
-            <th>活動地域</th>
-          </thead>
-          <tbody>
-            <% @sport.players.each do |player| %>
-            <tr>
-              <td>
-                <% if player.image.attached? %>
-                  <%= image_tag player.image, size: "70x70", class: "icon" %>
-                <% else %>
-                  <%= image_tag "no_image", size: "70x70", class: "icon" %>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to player_path(player.id) do %>
-                  <%= player.first_name %><%= player.last_name %>
-                <% end %>
-              </td>
-              <td><%= player.area %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+<table class="table">
+  <thead>
+    <th></th>
+    <th>名前</th>
+    <th>活動中のスポーツ</th>
+    <th>活動地域</th>
+  </thead>
+  <tbody>
+    <% @players.each do |player| %>
+    <tr>
+      <td>
+        <% if player.image.attached? %>
+          <%= image_tag player.image, size: "70x70", class: "icon" %>
+        <% else %>
+          <%= image_tag "no_image", size: "70x70", class: "icon" %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to player_path(player.id) do %>
+          <h4><%= player.first_name %><%= player.last_name %></h4>
+        <% end %>
+      </td>
+      <td><h4><%= player.sport.sport_name %></h4></td>
+      <td><h4><%= player.area %></h4></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
