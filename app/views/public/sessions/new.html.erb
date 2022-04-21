@@ -4,6 +4,7 @@
     <h2 class="text-center mb-5">ログイン</h2>
     <%= form_with model: @player, url: player_session_path do |f| %>
     
+    
       <div class="form-group text-center mb-5">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", size: "50", placeholder: "メールアドレス" %>
       </div>
