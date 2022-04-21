@@ -1,27 +1,34 @@
 <main>
-  <div>
-    <h1>紹介動画、画像を追加する</h1>
-    <%= form_with model: @post, url: posts_path do |f| %>
-    <div class="field">
-      <%= f.label :"動画" %>
-      <%= f.file_field :video, accept: "video/*" %><br>
-    </div>
-    <div class="field">
-      <%= f.label :"画像" %>
-      <%= f.file_field :image, accept: "image/*" %><br>
-    </div>
-    <div class="field">
-      <%= f.label :"タイトル" %>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :"説明" %>
-      <%= f.text_area :about %>
-    </div>
-    <div class="field">
-      <%= f.submit "投稿する" %>
-    </div>
-    <% end %>
+  <div class="title-area">
+    <h1 class="contents-title">紹介動画、画像を追加する</h1>
   </div>
-  
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <%= form_with model: @post, url: posts_path do |f| %>
+      <div class="field">
+        <%= f.label :"動画" %>
+        <%= f.file_field :video, accept: "video/*" %><br>
+        <p>MP4形式の動画のみアップロード可能<br>
+          MP4以外の形式の場合、下記サイトにて変換をお願い致します。
+        </p>
+        <a href="https://www.freemake.com/jp/free_video_converter/">こちらをクリック</a>
+      </div>
+      <div class="field col-md-6">
+        <%= f.label :"画像" %>
+        <%= f.file_field :image, accept: "image/*" %><br>
+      </div>
+      <div class="field">
+        <%= f.label :"タイトル" %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :"説明" %>
+        <%= f.text_area :about %>
+      </div>
+      <div class="field">
+        <%= f.submit "投稿する" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </main>
