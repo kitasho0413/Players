@@ -28,6 +28,11 @@
    z-index: 10;
  }
  
+ .site-logo {
+   font-family: impact;
+   letter-spacing: 3px;
+ }
+ 
  .logo {
    justify-content: center;
  }
@@ -99,6 +104,19 @@ footer {
 .link:hover::before {
   transform-origin: 0% 50%;
   transform: scaleX(1);
+}
+
+.title-area {
+  width: 100%;
+  text-align: center;
+}
+
+.contents-title {
+  display: inline-block;
+  margin: auto;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: solid 5px #05ffff;
 }
 
 /* ---------------------------- */

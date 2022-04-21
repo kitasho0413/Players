@@ -1,5 +1,7 @@
 <main>
-  <h2 class="text-center">いいねした投稿一覧</h2>
+  <div class="title-area">
+    <h1 class="contents-title">いいねした投稿一覧</h2>
+  </div>
   <div class="post-items">
     <% @favorite_posts.each do |post|%>
     <%= link_to post_path(post.id), class: "content-link" do %>
