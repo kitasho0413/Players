@@ -12,6 +12,7 @@ class Public::SportsController < ApplicationController
   
   def show
     @sport = Sport.find(params[:id])
+    @players = @sport.players.page(params[:page]).per(12)
   end
   
   private

@@ -44,7 +44,7 @@ class Public::PlayersController < ApplicationController
   
   def check_players
     player = Player.find(params[:player_id])
-    @players = player.followings.page(params[:page]).per(12)
+    @players = player.followings.page(params[:page]).per(1)
   end
   
   private
