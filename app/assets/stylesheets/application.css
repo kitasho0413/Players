@@ -205,3 +205,7 @@ ul {
   margin: auto;
 }
 
+.pagenation {
+  position: absolute;
+  right: 100px;
+}
