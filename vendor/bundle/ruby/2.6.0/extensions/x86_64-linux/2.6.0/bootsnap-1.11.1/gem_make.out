@@ -1,5 +1,5 @@
 current directory: /home/ec2-user/environment/Players/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.11.1/ext/bootsnap
-/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20220416-24482-oni4cp.rb extconf.rb
+/home/ec2-user/.rvm/rubies/ruby-2.6.3/bin/ruby -I /home/ec2-user/.rvm/rubies/ruby-2.6.3/lib/ruby/site_ruby/2.6.0 -r ./siteconf20220422-12220-1mni5i1.rb extconf.rb
 creating Makefile
 
 current directory: /home/ec2-user/environment/Players/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.11.1/ext/bootsnap
@@ -25,4 +25,4 @@ linking shared-object bootsnap/bootsnap.so
 
 current directory: /home/ec2-user/environment/Players/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.11.1/ext/bootsnap
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220416-24482-xhygds/bootsnap
+/usr/bin/install -c -m 0755 bootsnap.so ./.gem.20220422-12220-go5xh0/bootsnap

@@ -19,10 +19,13 @@
         <%= link_to player_path(player.id) do %>
           <h4><%= player.first_name %><%= player.last_name %></h4>
         <% end %>
+        
+        
       </td>
       <td><h4><%= player.sport.sport_name %></h4></td>
       <td><h4><%= player.area %></h4></td>
     </tr>
+    
     <% end %>
   </tbody>
 </table>

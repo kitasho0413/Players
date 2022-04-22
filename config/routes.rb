@@ -28,6 +28,7 @@ devise_for :players,skip: [:passwords], controllers: {
     resources :sports, only: [:show]
     resources :posts, only: [:new, :create, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
     end
     get '/' => 'sports#index', as: 'top'
     get '/about' => 'homes#about'
