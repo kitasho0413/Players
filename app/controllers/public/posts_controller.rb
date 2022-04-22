@@ -16,6 +16,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @player = Player.find(@post.player_id)
+    @post_comment = PostComment.new
   end
   
   def destroy
