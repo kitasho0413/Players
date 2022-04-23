@@ -17,10 +17,13 @@
             </div>
           <% else %>
             <div class="links">
-              <% if current_player.following?(@player) %>
-                <%= link_to "チェックを外す", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :delete %>
+              <% if player_signed_in? %>
+                <% if current_player.following?(@player) %>
+                  <%= link_to "チェックを外す", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :delete %>
+                <% else %>
+                  <%= link_to "チェックする", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :post %>
+                <% end %>
               <% else %>
-                <%= link_to "チェックする", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :post %>
               <% end %>
             </div>  
           <% end %>

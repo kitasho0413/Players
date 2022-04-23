@@ -16,6 +16,9 @@ class Player < ApplicationRecord
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
   
+  # ファイルアップロードのバリデーション
+  validate :post_size
+  
     # フォローしたときの処理
   def follow(player_id)
     relationships.create(followed_id: player_id)
@@ -55,6 +58,15 @@ class Player < ApplicationRecord
     self.last_name + self.first_name
   end
   
- 
-
+  private
+  
+  def post_size
+    posts.each do |post|
+      if post.blob.byte_size > 500.megabytes
+        post.purge
+        errors.add(:post, "は1つのファイル500MB以内にしてください")
+      end
+    end
+  end
+  
 end

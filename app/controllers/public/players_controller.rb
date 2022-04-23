@@ -1,4 +1,5 @@
 class Public::PlayersController < ApplicationController
+  
   def new
   end
 

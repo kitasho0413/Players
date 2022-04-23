@@ -1,4 +1,6 @@
 class Public::PostsController < ApplicationController
+  before_action :autheniticate_player, except: [:show]
+  
   def new
     @post = Post.new
   end
@@ -17,6 +19,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @player = Player.find(@post.player_id)
     @post_comment = PostComment.new
+    @post_comments = @post.post_comments.page(params[:page]).per(8)
   end
   
   def destroy

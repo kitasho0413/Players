@@ -1,0 +1,45 @@
+<main>
+  <div>
+    <h1 class="contents-title">会員詳細</h1>
+    <table class="table table-condensed">
+        <tr class="mb-3">
+          <td><h3>名前</h3></td>
+          <td class="text-center"><h3><%= @player.first_name %> <%= @player.last_name %></h3></td>
+        </tr>
+        <tr class="mb-3">
+          <td><h3>活動スポーツ</h3></td>
+          <td class="text-center">
+            <h3>
+              <% if @player.sport.blank? %>
+              <% else %>
+              <%= @player.sport.sport_name %>
+              <% end %>
+            </h3>
+          </td>
+        </tr>
+        <tr class="mb-3">
+          <td><h3>活動地域</h3></td>
+          <td class="text-center"><h3><%= @player.area %></h3></td>
+        </tr>
+        <tr class="mb-3">
+          <td><h3>チーム名</h3></td>
+          <td class="text-center"><h3><%= @player.team_name %></h3></td>
+        </tr>
+        <tr class="mb-3">
+          <td><h3>メールアドレス</h3></td>
+          <td class="text-center"><h3><%= @player.email %></h3></td>
+        </tr>
+        <tr class="mb-3">
+          <td><h3>会員ステータス</h3></td>
+          <td>
+            <% if @player.is_deleted == false %>
+              <p class="text-success font-weight-bold">有効</p>
+            <% else %>
+              <p class="text-secondary font-weight-bold">退会</p>
+            <% end %>
+          </td>
+        </tr>
+    </table>
+    <%= link_to "編集する", edit_admin_player_path, class: 'link' %>
+  </div>
+</main>
