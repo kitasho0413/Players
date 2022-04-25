@@ -1,5 +1,5 @@
 class Public::PostCommentsController < ApplicationController
-  before_action :authenticate_player!
+  #before_action :authenticate_player!
   def create
     post = Post.find(params[:post_id])
     comment = current_player.post_comments.new(post_comment_params)

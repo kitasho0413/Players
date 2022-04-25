@@ -1,4 +1,5 @@
 class Admin::PlayersController < ApplicationController
+  before_action :authenticate_admin!
   def show
     @player = Player.find(params[:id])
   end

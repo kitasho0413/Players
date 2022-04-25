@@ -1,5 +1,5 @@
 class Public::PostsController < ApplicationController
-  before_action :autheniticate_player, except: [:show]
+  #before_action :autheniticate_player, except: [:show]
   
   def new
     @post = Post.new
@@ -8,8 +8,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.player_id = current_player.id
-    @post.save
-    redirect_to player_path(current_player.id)
+    if  @post.save
+      redirect_to player_path(current_player.id)
+    else
+       render :new
+    end
   end
   
   def edit
@@ -19,7 +22,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @player = Player.find(@post.player_id)
     @post_comment = PostComment.new
-    @post_comments = @post.post_comments.page(params[:page]).per(8)
+    @post_comments = @post.post_comments.order(created_at: :desc).page(params[:page]).per(6)
   end
   
   def destroy

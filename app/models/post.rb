@@ -5,6 +5,9 @@ class Post < ApplicationRecord
   belongs_to :player
   has_many :favorites, dependent: :destroy
   has_many :post_comments, dependent: :destroy
+ 
+  validates :title, presence: true
+  validates :about, presence: true
   
   
    def favorited_by?(player)

@@ -29,7 +29,7 @@
         <% end %>
       <% end %>
       <p>コメント件数：<%= @post.post_comments.count %></p>
-    <% @post.post_comments.each do |post_comment| %>
+    <% @post_comments.each do |post_comment| %>
       <div class="comment-area">
         <%= post_comment.player.first_name %><%= post_comment.player.last_name %>
         <%= post_comment.comment %><br>
@@ -49,6 +49,7 @@
         <% end %>
       </div>
     <% end %>
+    <%= link_to "戻る", :back, class: "link" %>
     </div>
   </div>
 </main>
