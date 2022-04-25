@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-
-
-
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
   # 顧客用
 devise_for :players,skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
 }
+
+# 管理者用
+devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
+  sessions: "admin/sessions"
+}
+
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
 
   scope module: :public do
     get 'players/unsubscribe' => 'players#unsubscribe', as: 'unsubscribe'
@@ -28,6 +31,7 @@ devise_for :players,skip: [:passwords], controllers: {
     resources :sports, only: [:show]
     resources :posts, only: [:new, :create, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
     end
     get '/' => 'sports#index', as: 'top'
     get '/about' => 'homes#about'
@@ -37,13 +41,10 @@ devise_for :players,skip: [:passwords], controllers: {
   end
 
 
-# 管理者用
-devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-  sessions: "admin/sessions"
-}
-
 namespace :admin do
     resources :sports, only: [:new, :create, :index, :destroy]
+    resources :players, only: [:show, :index, :edit, :update]
+    get 'admin_top' => "homes#admin_top", as: 'top'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

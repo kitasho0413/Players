@@ -12,15 +12,18 @@
           <% if @player == current_player %>
             <div class="links">
               <p class="d-flex mx-auto"><%= link_to "チェック一覧", player_check_players_path(current_player), class: "link" %></p>
-              <p class="d-flex mx-auto"><%= link_to"お気に入り記事",favorites_player_path(@player), class: "link" %></p>
+              <p class="d-flex mx-auto"><%= link_to"いいねした投稿",favorites_player_path(@player), class: "link" %></p>
               <p class="d-flex mx-auto"><%= link_to "プロフィールを編集する", edit_player_path(current_player.id), class: "link" %></p>
             </div>
           <% else %>
             <div class="links">
-              <% if current_player.following?(@player) %>
-                <%= link_to "チェックを外す", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :delete %>
+              <% if player_signed_in? %>
+                <% if current_player.following?(@player) %>
+                  <%= link_to "チェックを外す", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :delete %>
+                <% else %>
+                  <%= link_to "チェックする", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :post %>
+                <% end %>
               <% else %>
-                <%= link_to "チェックする", player_relationships_path(@player.id), class: "link d-flex mx-auto", method: :post %>
               <% end %>
             </div>  
           <% end %>
@@ -88,4 +91,5 @@
 <div class="pagenation">
   <%= paginate @posts %>
 </div>
+<%= link_to "戻る", :back, class: "link" %>
 </main>

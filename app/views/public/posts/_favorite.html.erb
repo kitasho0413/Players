@@ -1,0 +1,15 @@
+<% if player_signed_in? %>
+  <% if @post.favorited_by?(current_player) %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :delete, remote: true do %>
+        ♥<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_favorites_path(@post), method: :post, remote: true do %>
+        ♡<%= @post.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+<% end %>

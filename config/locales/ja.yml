@@ -1,0 +1,6 @@
+ja:
+activerecord:
+  attributes:
+    player:
+      sport: "スポーツ"
+      blank: "が入力されていません。"

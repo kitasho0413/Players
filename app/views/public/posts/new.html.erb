@@ -1,5 +1,14 @@
 <main>
   <div class="title-area">
+    <% if @post.errors.any? %>
+  <%= @post.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
     <h1 class="contents-title">紹介動画、画像を追加する</h1>
   </div>
   <div class="container">
@@ -31,10 +40,5 @@
       <% end %>
     </div>
   </div>
+  <%= link_to "戻る", :back, class: "link" %>
 </main>
-
-
-
-      
-      
-      

@@ -1,0 +1,48 @@
+<main>
+  <div>
+    <%= form_with model: @player, url: admin_player_path(@player.id), method: :patch do |f| %>
+      <table class="table">
+          <tr>
+            <td><strong><%= f.label :"姓" %></strong></td>
+            <td><%= f.text_field :first_name, autofocus: true, placeholder: "姓", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"名" %></strong></td>
+            <td><%= f.text_field :last_name,  placeholder:"名", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"姓(かな)" %></strong></td>
+            <td><%= f.text_field :first_name_kana, autofocus: true, placeholder: "姓(かな)", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"名(かな)" %></strong></td>
+            <td><%= f.text_field :last_name_kana, placeholder: "名(かな)", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"メールアドレス" %></strong></td>
+            <td><%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"活動中のスポーツ" %></strong></td>
+            <td><%= f.collection_select :sport_id, Sport.all, :id, :sport_name, include_blank: "選択して下さい" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"活動地域" %></strong></td>
+            <td><%= f.text_field :area, placeholder: "活動地域", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :"チーム名" %></strong></td>
+            <td><%= f.text_field :team_name, placeholder: "チーム名", class: "form-area" %></td>
+          </tr>
+          <tr>
+            <td><strong><%= f.label :about, "会員ステータス" %></strong></td>
+          	<td>
+          	  <%= f.radio_button :is_deleted, true %>退会
+              <%= f.radio_button :is_deleted, false %>有効
+            </td>
+          </tr>
+        </table>
+          <%= f.submit "変更を保存" %>
+    <% end %>
+  </div>
+</main>

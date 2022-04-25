@@ -6,6 +6,7 @@ class Player < ApplicationRecord
   has_one_attached :image
   belongs_to :sport, optional: true
   has_many :posts, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   # フォローをした、されたの関係
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
@@ -14,6 +15,9 @@ class Player < ApplicationRecord
   # 一覧画面で使う
   has_many :followings, through: :relationships, source: :followed
   has_many :followers, through: :reverse_of_relationships, source: :follower
+  
+  # ファイルアップロードのバリデーション
+  #validate :post_size
   
     # フォローしたときの処理
   def follow(player_id)
@@ -54,6 +58,15 @@ class Player < ApplicationRecord
     self.last_name + self.first_name
   end
   
- 
-
+  private
+  
+  # def post_size
+  #   posts.each do |post|
+  #     if post.blob.byte_size > 500.megabytes
+  #       post.purge
+  #       errors.add(:post, "は1つのファイル500MB以内にしてください")
+  #     end
+  #   end
+  # end
+  
 end
