@@ -18,3 +18,6 @@ require('slick')
 Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()
+
+// Enable jQuery in the .js.erb file
+/*global jQuery*/global.$ = jQuery;

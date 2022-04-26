@@ -8,5 +8,49 @@
 .about {
   margin-top: 100px;
   font-size: 20px;
+}
+
+.sec {
+  display: flex;
+}
+
+.explanation {
+  margin: 20px;
+  
+}
+
+p {
+  margin: 20px;
+}
+
+.site-about {
+  display: inline-block;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  padding-bottom: 5px;
+  border-bottom: solid 5px #05ffff;
+}
+
+.title-about {
+  margin-top: 20px;
   text-align: center;
+}
+
+.about-img {
+  width: 500px;
+  height: 350px;
+}
+
+/*スマホ*/
+
+@media screen and (max-width: 425px) {
+  .about-img {
+    width: 150px;
+    height: 100px;
+  }
+  
+  .sec {
+  display: block;
+}
 }

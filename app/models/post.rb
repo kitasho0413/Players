@@ -9,7 +9,6 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :about, presence: true
   
-  
    def favorited_by?(player)
     favorites.exists?(player_id: player.id)
    end

@@ -80,8 +80,30 @@
 .sports-index {
   margin-top: 180px;
 }
+
 td {
   min-height: 10em;
     display: table-cell;
     vertical-align: middle 
+}
+
+@media screen and (max-width: 425px) {
+  
+ .slick-slider img{
+  height: 200px !important;
+  width: 425px !important;
+}
+
+.box {
+  width: 120px;
+  height: 70px;
+  justify-content: center;
+}
+  
+
+.sport-name {
+  font-size: 10px;
+  width: 120px;
+}
+  
 }
