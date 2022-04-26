@@ -1,7 +1,7 @@
 <main>
   <div class="container">
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-md-3">
         <div class="mb-4">
           <% if @player.image.attached? %>
             <%= image_tag @player.image, size: "200x200", class: "icon d-flex mx-auto" %>
@@ -25,11 +25,11 @@
                 <% end %>
               <% else %>
               <% end %>
-            </div>  
+            </div>
           <% end %>
       </div>
-      <div class="col-lg-9">
-        <table class="table table-condensed">
+      <div class="col-md-9">
+        <table class="table scroll-table">
           <tr class="mb-3">
             <td><h3>名前</h3></td>
             <td class="text-center"><h3><%= @player.first_name %> <%= @player.last_name %></h3></td>

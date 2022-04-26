@@ -11,7 +11,7 @@ class Public::PostsController < ApplicationController
     if  @post.save
       redirect_to player_path(current_player.id)
     else
-       render :new
+      render :new
     end
   end
   

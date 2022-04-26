@@ -49,7 +49,7 @@
 
 main {
   width: 100%;
-  height: 1500px;
+  /*height: 1500px;*/
   padding-top: 200px;
 }
 
@@ -208,4 +208,40 @@ ul {
 
 .pagination {
   justify-content: right;
+}
+
+
+/*スマホ*/
+
+@media screen and (max-width: 425px) {
+
+  header {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+  }
+
+  footer {
+    width: 100%;
+  }
+
+  .humberger-menu { flex-direction: row-reverse; }
+
+  .menu-trigger {
+  position: relative;
+  width: 42px;
+  height: 44px;
+
+}
+
+  .scroll-table {
+    display: block;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  
 }

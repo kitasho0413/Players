@@ -122,3 +122,21 @@ h3 {
 #text {
   margin-top: 20px;
 }
+
+// スマホ
+@media screen and (max-width: 425px) {
+
+
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .container {
+    width: 100% !important;
+  }
+  .links {
+    display: inline-block !important;
+  }
+  
+}

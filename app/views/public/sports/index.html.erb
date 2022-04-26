@@ -14,7 +14,7 @@
       <div class="sports-tag">
         <% @sports.each do |sport| %>
           <%= link_to sport_path(sport.id),class: "box shadow tag" do %>
-            <h3><%= sport.sport_name %></h3>
+            <h3 class="sport-name"><%= sport.sport_name %></h3>
           <% end %>
         <% end %>
       </div>

@@ -1,7 +1,7 @@
 <main>
   <div class="post-item">
     <% if @post.image.attached? %>
-      <%= image_tag @post.image, size: "1000x500" %>
+      <%= image_tag @post.image, class: "post-img" %>
     <% else %>
       <%= video_tag rails_blob_path(@post.video), controls: true, size: "1000x500" %>
       <%#= video_tag(rails_blob_path(post.video), autoplay: :true, loop: :true, muted: :true, class: 'video-content') %>
@@ -13,22 +13,11 @@
       <% if @player == current_player %>
         <%= link_to "投稿を削除", post_path(@post.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       <% end %>
-      <% if player_signed_in? %>
-        <% if @post.favorited_by?(current_player) %>
-          <p>
-            <%= link_to post_favorites_path(@post), method: :delete do %>
-              ♥<%= @post.favorites.count %> いいね
-            <% end %>
-          </p>
-          <% else %>
-          <p>
-            <%= link_to post_favorites_path(@post), method: :post do %>
-              ♡<%= @post.favorites.count %> いいね
-            <% end %>
-          </p>
-        <% end %>
-      <% end %>
+      <div id="favorite_btn_<%= @post.id %>">
+        <%= render "public/posts/favorite", post: @post %>
+      </div>
       <p>コメント件数：<%= @post.post_comments.count %></p>
+      <div class="comments-area">
     <% @post_comments.each do |post_comment| %>
       <div class="comment-area">
         <%= post_comment.player.first_name %><%= post_comment.player.last_name %>
@@ -40,11 +29,13 @@
       </div>
     <% end %>
     <%= paginate @post_comments %>
-      
+    </div>
+    
+
     <% if player_signed_in? %>
       <div>
         <%= form_with model: [@post, @post_comment] do |f| %>
-          <%= f.text_area :comment, rows: '5', size: "50x5", placeholder: "コメントをここに" %>
+          <%= f.text_area :comment, rows: '5', size: "35x5", placeholder: "コメントをここに" %>
           <%= f.submit "送信する" %>
         <% end %>
       </div>
