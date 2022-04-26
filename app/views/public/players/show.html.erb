@@ -6,7 +6,7 @@
           <% if @player.image.attached? %>
             <%= image_tag @player.image, size: "200x200", class: "icon d-flex mx-auto" %>
           <% else %>
-            <%= image_tag "no_image", size: "200x200", class: "icon d-flex mx-auto" %>
+            <%= image_tag "no_image.jpg", size: "200x200", class: "icon d-flex mx-auto" %>
           <% end %>
         </div>
           <% if @player == current_player %>
