@@ -2,10 +2,10 @@ class Public::SportsController < ApplicationController
   def index
     @sports = Sport.all.page(params[:page]).per(12)
     if Rails.env.production?
-      @randoms = Post.order("RAND()").limit(5)
+      @randoms = Post.order("RAND()").limit(8)
       #mysql
     else
-      @randoms = Post.order("RANDOM()").limit(5)
+      @randoms = Post.order("RANDOM()").limit(8)
       #sqlite
     end
   end
