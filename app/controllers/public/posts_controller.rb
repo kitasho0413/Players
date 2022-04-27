@@ -14,9 +14,6 @@ class Public::PostsController < ApplicationController
       render :new
     end
   end
-  
-  def edit
-  end
 
   def show
     @post = Post.find(params[:id])

@@ -26,6 +26,9 @@
 
 ## 設計書
 
+ER図　https://drive.google.com/file/d/1HhN_pixF3SnniniiHnIUtHHmOkOeTHGv/view?usp=sharing
+
+詳細設計書　https://docs.google.com/spreadsheets/d/1TC5dhrvV92oq2MpyGYLkASPg2RPCMj8hiKIpQi2JrU0/edit?usp=sharing
 
 
 ## 開発環境
