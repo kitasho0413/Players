@@ -5,6 +5,11 @@ class Public::PlayersController < ApplicationController
 
   def edit
     @player = Player.find(params[:id])
+    if @player == current_player
+      render "edit"
+    else
+      redirect_to player_path
+    end
   
   end
   
