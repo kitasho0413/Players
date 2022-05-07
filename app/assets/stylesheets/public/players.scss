@@ -39,6 +39,12 @@ h3 {
   resize: none;
 }
 
+.item{
+	width: 250px;
+	height: 180px;
+	object-fit: cover;
+ }
+
 .item:hover {
   transform: scale(1.05,1.05);
 }
