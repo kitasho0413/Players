@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-    <h1 class="contents-title">紹介動画、画像を追加する</h1>
+    <h1 class="contents-title">紹介動画、または画像を追加する</h1>
   </div>
   <div class="container">
     <div class="row d-flex mx-auto">
@@ -25,6 +25,7 @@
       <div class="field">
         <h4 class="label">画像</h4>
         <%= f.file_field :image, accept: "image/*" %><br>
+        <p class="contain">※動画、画像のどちらかのみ選択してください。</p>
       </div>
       <div class="field">
         <h4 class="label">タイトル</h4>
